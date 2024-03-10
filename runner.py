@@ -3,6 +3,7 @@ import sys
 from libraries.log_config import setup_logging
 from raster_processor.raster_converter_classifier import process_raster as process_raster_classifier
 from raster_processor.raster_converter_linear import process_raster as process_raster_linear
+from raster_processor.raster_CNN import process_raster_CNN
 
 # Put base path here
 BASE_PATH = "BASE_PATH"
@@ -16,10 +17,7 @@ sys.path.extend(lib_locations)
 setup_logging()
 
 # For processing raster with classification
-process_raster_classifier()
-
-#For processing raster for linear regression
-process_raster_linear()
+process_raster_CNN()
 
 
 
