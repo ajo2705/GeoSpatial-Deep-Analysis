@@ -8,11 +8,13 @@ from raster_processor.raster_CNN import process_raster_CNN
 # Put base path here
 BASE_PATH = "BASE_PATH"
 
+CNN_LIBRARY = "cnn"
 LIB = "libraries"
 RASTERS = "raster_processor"
+MODEL_TRAINER = "model_trainers"
 
 # BASE THINGS
-lib_locations = [os.path.join(BASE_PATH, lib) for lib in [LIB, RASTERS]]
+lib_locations = [os.path.join(BASE_PATH, lib) for lib in [LIB, RASTERS, CNN_LIBRARY, MODEL_TRAINER]]
 sys.path.extend(lib_locations)
 setup_logging()
 
