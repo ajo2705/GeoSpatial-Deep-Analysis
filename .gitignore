@@ -54,6 +54,9 @@ coverage.xml
 .pytest_cache/
 cover/
 
+# Resources
+Resources/*/**
+
 # Translations
 *.mo
 *.pot
@@ -84,6 +87,7 @@ target/
 # IPython
 profile_default/
 ipython_config.py
+
 
 # pyenv
 #   For a library or package, you might want to ignore these files since the code is
