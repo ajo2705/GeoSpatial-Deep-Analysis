@@ -11,7 +11,8 @@ class Trainer:
 
 
 class Base:
-    BASE_PATH = "{base_path}"   # Directory location of resources and all other base folders. Default set it to "/". Configure in config file
+    # TODO: Modify BASE_PATH and add it in configuration yml
+    BASE_PATH = "./"
     BASE_RESOURCE_PATH = BASE_PATH + "Resources/"
     BASE_IMAGE_PATH = BASE_RESOURCE_PATH + "Images/"
     BASE_XLSX_PATH = BASE_RESOURCE_PATH + "Tables/"

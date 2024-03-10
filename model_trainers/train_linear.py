@@ -49,9 +49,11 @@ def get_loss(config_dict):
     loss = get_config_parameter(config_dict, ConfigParams.loss)
     return loss, get_loss_function(loss)
 
+
 def get_nn_config(config_dict):
     config = get_config_parameter(config_dict, ConfigParams.model_config)
     return config
+
 
 def load_model(config_dict, device):
     module_name = get_config_parameter(config_dict, ConfigParams.model_file)
@@ -78,10 +80,7 @@ def train_model():
     logger.info(model)
     logger.info("*********  MODEL  **********")
 
-    # Define loss function and optimizer
-    loss_weights = torch.tensor([3.5, 1.2, 1.9])
-
-    loss_name, loss_function = get_loss(config_dict)# nn.MSELoss()
+    loss_name, loss_function = get_loss(config_dict)
     criterion = loss_function()
 
     weight_decay = 1e-2
@@ -109,5 +108,5 @@ def train_model():
     linear_regression_test_model(model, device, test_loader, criterion, workbook)
     workbook.save(xlsx_file)
 
-    #Save model
+    # Save model
     save_model(model, learning_rate, batch_size, loss_name, weight_decay)
