@@ -132,6 +132,9 @@ class ClassifierRasterConverter(RasterConverter):
 
 
 class LinearRasterConverter(RasterConverter):
+    """
+    Raster converter for linear regression operations
+    """
     FILTER_CHANNELS = ["soil_taxonomy_refined", "LC_type1", "CDL_1km", 'elev', 'srad', 'slope', 'local_upslope_curvature',
                        'local_downslope_curvature', 'aspect', 'bio_1', 'bio_2', 'bio_3', 'bio_4', 'bio_5', 'bio_15',
                        'NDVI_p50', 'EVI_p0', 'Final_sm', 'clay_b0', 'clay_b10', 'ai', 'et0', 'SBIO_7', '5to15cm_SBIO_3',
@@ -143,6 +146,9 @@ class LinearRasterConverter(RasterConverter):
 
     @staticmethod
     def __get_class_datas(co_variate_raster_path):
+        """
+        Get name of raster bands
+        """
         with rasterio.open(co_variate_raster_path) as src:
             class_datas = [src.tags(idx)['NAME']for idx in range(1, src.count + 1)]
             no_data_band_index = [idx for idx in range(1, src.count + 1) if src.tags(idx)['NAME'] == 'NoData_Mask'][0]
@@ -150,6 +156,9 @@ class LinearRasterConverter(RasterConverter):
         return class_datas, no_data_band_index
 
     def filter_channels(self):
+        """
+        Filter channels based on FILTER_CHANNELS
+        """
         filter_channels = self.FILTER_CHANNELS
         index_list = [index for index, item in enumerate(self.class_datas) if item in filter_channels]
 
