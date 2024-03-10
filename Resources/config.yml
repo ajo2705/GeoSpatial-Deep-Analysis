@@ -1,0 +1,27 @@
+CNN:
+  hyperparameters:
+    num_epochs: 10000
+    batch_size: 128
+    learning_rate: 2.0e-04
+  early_stopper:
+    patience: 2000
+  model:
+    file: linear_model_param
+    class: ParameterizedCNN
+    config :
+      use_skip_connection: false
+      input_channels: 60
+      layers:
+          - { out_channels: 128, kernel_size: 3, stride: 1, padding: 1}
+          - { out_channels: 128, kernel_size: 3, stride: 1, padding: 1, pooling: { type: 'max', kernel_size: 2, stride: 2 }  }
+          - { out_channels: 256, kernel_size: 3, stride: 1, padding: 1}
+          - { out_channels: 256, kernel_size: 3, stride: 1, padding: 1, pooling: { type: 'max', kernel_size: 2, stride: 2 } }
+          - { out_channels: 512, kernel_size: 3, stride: 1, padding: 1, pooling: { type: 'max', kernel_size: 2, stride: 2 } }
+#          - { out_channels: 1024, kernel_size: 3, stride: 1, padding: 1, pooling: { type: 'avg', kernel_size: 2, stride: 2 } }
+      adaptive_pooling: { output_size: [ 1, 1 ] }
+      fully_connected: [ 512, 32, 1 ]
+######## FOR DEEP NEURAL NETWORKS #########
+      input_size: 24000
+      output_size: 1
+      hidden_size: [ 512, 256, 128 ]
+  loss: WeightMSE
