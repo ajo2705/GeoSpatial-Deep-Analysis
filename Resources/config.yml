@@ -10,6 +10,7 @@ CNN:
     class: ParameterizedCNN
     config :
       use_skip_connection: false
+# Replace input_channels with number of input channels created in patch after raster processing
       input_channels: 60
       layers:
           - { out_channels: 128, kernel_size: 3, stride: 1, padding: 1}
