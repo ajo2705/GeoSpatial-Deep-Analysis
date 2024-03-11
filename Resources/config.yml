@@ -26,6 +26,8 @@ CNN:
       output_size: 1
       hidden_size: [ 512, 256, 128 ]
   loss: WeightMSE
+
+######## FOR LOSS LANDSCAPE VISUALIZATION #######
 LossLandscape:
   plot:
     direction:
