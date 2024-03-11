@@ -26,3 +26,20 @@ CNN:
       output_size: 1
       hidden_size: [ 512, 256, 128 ]
   loss: WeightMSE
+LossLandscape:
+  plot:
+    direction:
+      x: "-1:1:20"
+      y: "-1:1:20"
+      dir_type: "weights"
+      dir_file: ""
+      xnorm: ""
+      ynorm: ""
+      xignore: ""
+      yignore: ""
+      same_dir: ""
+      surf_file: ""
+  trained_model:
+    file1: ""
+    file2: ""
+    file3: ""

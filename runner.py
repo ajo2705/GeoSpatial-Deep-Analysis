@@ -20,9 +20,12 @@ LIB = "libraries"
 RASTERS = "raster_processor"
 MODEL_TRAINER = "model_trainers"
 HYPERPARAM_LIBRARY = "hyperparameter_trainer"
+LOSS_LANDSCAPE = "loss_landscape"
+
 
 # BASE THINGS
-lib_locations = [os.path.join(BASE_PATH, lib) for lib in [LIB, RASTERS, CNN_LIBRARY, HYPERPARAM_LIBRARY, MODEL_TRAINER]]
+lib_locations = [os.path.join(BASE_PATH, lib) for lib in [LIB, RASTERS, CNN_LIBRARY, HYPERPARAM_LIBRARY, MODEL_TRAINER,
+                                                          LOSS_LANDSCAPE]]
 sys.path.extend(lib_locations)
 setup_logging()
 
